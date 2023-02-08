@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2><strong>Inventario</strong></h2>
+  <br>
+  <a class="btn btn-info buttonInfo"  routerLink="/modal"> <strong>Agregar producto</strong></a>
+  <br><br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Código</th>
+        <th>Imágen</th>
+        <th>Categoría</th>
+        <th>Precio</th>
+        <th>Opciones</th>
+      </tr>
+    </thead>
+    <tbody >
+      <tr *ngFor="let item of productos">
+        <td>{{item.id}}</td>
+        <td>{{item.image}}</td>
+        <td>{{item.category}}</td>
+        <td>{{item.price}}</td>
+        <td> 
+            <a class="btn btn-default buttonDefault" routerLink="/modal/{{item.id}}">
+            <strong>Editar</strong></a>
+            <button type="button" class="btn btn-info buttonInfo"(click)="eliminarProducto(item)">
+            <strong>
+            Eliminar
+            </strong>
+            </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+</body>
+</html>
+

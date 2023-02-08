@@ -1,0 +1,12 @@
+.buttonInfo {
+  font-family: Verdana;
+  color: black;
+  background-color: rgb(55, 171, 209);
+}
+
+.buttonDefault {
+  font-family: Verdana;
+  color: rgb(55, 171, 209);
+  background-color: black;
+
+}
