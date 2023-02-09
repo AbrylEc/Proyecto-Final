@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServicioProductosService } from '../services/servicio-productos.service';
+import { ServicioCarritoDeComprasService } from '../services/servicio-carrito.service';
 import { Observable } from 'rxjs';
+import { Producto } from '../app.types';
 
 @Component({
   selector: 'app-productos',
@@ -10,7 +12,7 @@ import { Observable } from 'rxjs';
 })
 export class ProductosComponent {
   productos$: Observable<any> | undefined
-  constructor(private servicio: ServicioProductosService, private router: Router) { }
+  constructor(private servicio: ServicioProductosService, private router: Router, private carritoService: ServicioCarritoDeComprasService) { }
   id: number = -1
   ngOnInit() {
     this.productos$ = this.servicio.getProductos()
@@ -19,4 +21,10 @@ export class ProductosComponent {
       this.id = parseInt(temp[2])
     }
   }
+  agregarAlCarrito(producto: Producto) {
+    this.carritoService.postCarrito(producto).subscribe( _ =>
+      this.carritoService.getCarrito().subscribe()
+    )
+  }
+
 }
