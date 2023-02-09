@@ -1,19 +1,9 @@
-<h2>REGISTRO DE PRODUCTOS</h2>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
-<body>
-
+<h1>Registro de productos</h1>
+<br>
 <div class="container" *ngIf="id==-1; else lleno">
+  <br>
   <h2>Agregar</h2>
+  <br>
   <p></p>
   <form class="form-inline" action="/action_page.php" >
     <div class="form-group">
@@ -29,18 +19,18 @@
         <input type="text" class="form-control"#precio >
     </div>
   <br><br>
-    <button type="button" class="btn btn-warning" (click)="agregarProducto(
+    <button type="button" class="btn btn-info buttonInfo" (click)="agregarProducto(
   id.value,
   cat.value,
   precio.value
-  )" href="/informacion"><a href="/inventario">ACEPTAR</a></button>
+  )" href="/informacion"><a href="/inventario"><strong>Aceptar</strong></a></button>
   </form>
-
 </div>
 
 <ng-template #lleno>
-<div class="">
+<div class="container">
     <h2>Editar</h2>
+    <br>
     <form class="form-inline" action="/action_page.php" >
         <div class="form-group">
             <label for="id">Código:</label>
@@ -55,14 +45,14 @@
             <input type="text" class="form-control" value={{productos[id-1].price}} #precioE>
         </div> 
         <br><br>
-        <button type="button" class="btn btn-warning" (click)="actualizarProducto(
+        <button type="button" class="btn btn-info buttonInfo" (click)="actualizarProducto(
           idE.value,
           catE.value,
-          precioE.value)"><a href="/inventario">ACTUALIZAR</a></button>
+          precioE.value)">Actualizar</button>
     </form>
 </div>
 </ng-template>
 
-</body>
-</html>
+
+
 

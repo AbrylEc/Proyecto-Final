@@ -17,6 +17,10 @@ import { InventarioComponent } from './inventario/inventario.component';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { ModalComponent } from './modal/modal.component';
 import { VentasComponent } from './ventas/ventas.component';
+import { Error404Component } from './error404/error404.component';
+import { ProductosComponent } from './productos/productos.component';
+import { CarritoComponent } from './carrito/carrito.component';
+import { ContactosComponent } from './contactos/contactos.component';
 
 registerLocaleData(es);
 
@@ -25,7 +29,12 @@ registerLocaleData(es);
     AppComponent,
     InventarioComponent,
     ModalComponent,
-    VentasComponent
+    VentasComponent,
+    Error404Component,
+    ProductosComponent,
+    CarritoComponent,
+    ContactosComponent
+
   ],
   imports: [
     BrowserModule,
@@ -37,6 +46,7 @@ registerLocaleData(es);
     NzLayoutModule,
     NzMenuModule,
     NzModalModule
+
   ],
   providers: [
     { provide: NZ_I18N, useValue: es_ES }

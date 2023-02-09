@@ -1,0 +1,15 @@
+<div class="container">
+  <ng-container *ngIf="productos$ | async as productos">
+    <div class="details">
+      <div>
+        <h1>{{productos[id-1].title}}</h1>
+        <img src={{productos[id-1].image}} class="card__image" alt="" />
+      </div>
+      <div>
+        <p>{{productos[id-1].description}}</p>
+        <p>{{productos[id-1].price}}</p>
+        <button class="btn btn-info">Agregar al carrito</button>
+      </div>
+    </div>
+  </ng-container>
+</div>

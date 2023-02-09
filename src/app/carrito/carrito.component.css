@@ -1,0 +1,36 @@
+h2 {
+  padding: 2rem;
+  font-weight: bolder;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.card {
+  background-color: white;
+  padding: 20px;
+  font-size: 20px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.card__title {
+  font-size: 32px;
+  margin: 5px 0;
+  height: 100px;
+  overflow: overlay;
+}
+
+.card__image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}

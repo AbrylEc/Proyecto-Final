@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
-<body>
 
 <div class="container">
   <h2><strong>Inventario</strong></h2>
@@ -26,7 +17,9 @@
     <tbody >
       <tr *ngFor="let item of productos">
         <td>{{item.id}}</td>
-        <td>{{item.image}}</td>
+        <td>
+            <img class="img_productos" src="{{item.image}}" alt="Imagen no disponible"/>
+            </td>
         <td>{{item.category}}</td>
         <td>{{item.price}}</td>
         <td> 
@@ -43,7 +36,4 @@
   </table>
 </div>
 
-
-</body>
-</html>
 

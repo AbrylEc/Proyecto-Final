@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+.buttonInfo {
+  font-family: Verdana;
+  color: black !important;
+  background-color: rgb(55, 171, 209);
+}
+
+.buttonDefault {
+  font-family: Verdana;
+  color: rgb(55, 171, 209);
+  background-color: black;
+}
+
+.img_productos {
+  width: 100px;
+  height: 100px;
+}

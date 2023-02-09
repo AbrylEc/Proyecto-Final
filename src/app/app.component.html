@@ -12,13 +12,16 @@
       </a>
     </div>
     <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed" style="background-color: rgb(55, 171, 209); color: black">
-      <li nz-submenu nzOpen nzTitle="Inventario" nzIcon="dashboard" style="color: black">
+      <li nz-submenu nzOpen nzTitle="Información" nzIcon="dashboard" style="color: black">
         <ul style="background-color: black">
           <li nz-menu-item nzMatchRouter style="background-color: black">
             <a routerLink="/welcome">Nosotros</a>
           </li>
           <li nz-menu-item nzMatchRouter style="background-color: black">
             <a  routerLink="/inventario">Inventario</a>
+          </li>
+          <li nz-menu-item nzMatchRouter style="background-color: black">
+            <a  routerLink="/contactos">Contáctanos</a>
           </li>
         </ul>
       </li>
@@ -36,8 +39,8 @@
       <div class="app-header" style="background-color: black">
         <span class="header-trigger" (click)="isCollapsed = !isCollapsed" style="color: white">
             <span class="trigger"
-               nz-icon
-               [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+              nz-icon
+              [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
             ></span>
         </span>
       </div>
