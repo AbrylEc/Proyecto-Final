@@ -21,10 +21,32 @@ export class ProductosComponent {
       this.id = parseInt(temp[2])
     }
   }
-  agregarAlCarrito(producto: Producto) {
-    this.carritoService.postCarrito(producto).subscribe( _ =>
-      this.carritoService.getCarrito().subscribe()
-    )
-  }
 
+  agregarAlCarrito(producto: Producto) {
+    this.carritoService.carrito$.subscribe((cart: Producto[] | null) => {
+      // function find() devuelve un booleano si se cumple la condición 
+      let carrito = cart
+      if(!Array.isArray(cart)) {
+        carrito = [cart ?? producto]
+      }
+      const productoEnCarrito = carrito?.find((p: Producto) => p.id === producto.id)
+      if (productoEnCarrito) {
+        console.log(productoEnCarrito)
+        productoEnCarrito.rating.count += 1
+        this.carritoService.updateCarrito(productoEnCarrito).subscribe()
+      } else {
+        // Actualizar el cantidad del producto
+        const updateProducto = { ...producto }
+        updateProducto.rating.count -= 1
+        this.servicio.updateProductos(updateProducto).subscribe()
+
+        // Agregar el producto al carrito
+        const carritoProducto = { ...producto }
+        carritoProducto.rating.count = 1
+        this.carritoService.postCarrito(carritoProducto).subscribe(_ =>
+          this.carritoService.getCarrito().subscribe()
+        )
+      }
+    })
+  }
 }
