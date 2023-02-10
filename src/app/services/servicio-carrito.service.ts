@@ -32,8 +32,8 @@ get carrito$(): Observable<Producto[] | null> {
   }
 
   updateCarrito(carrito: Producto): Observable<Producto> {
-    this.API_CARRITO = `${this.API_CARRITO}/${carrito.id}`
-    return this.http.put<Producto>(this.API_CARRITO, carrito)
+    const API_UPDATE = `${this.API_CARRITO}/${carrito.id}`
+    return this.http.put<Producto>(API_UPDATE, carrito)
 
   }
   deleteCarrito(id: Producto): Observable<Producto> {
