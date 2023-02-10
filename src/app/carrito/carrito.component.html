@@ -8,5 +8,5 @@
           <h3 class="card__title">{{item.title}}</h3>
         </a>
         <p class="card__price">${{item.price}}</p>
-        <button class="btn btn-primary">Añadir al carrito</button>
+        <button class="btn btn-primary" (click)="agregarAlCarrito(item)">Añadir al carrito</button>
       </div>

@@ -1,31 +1,43 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs'
 import { HttpClient } from '@angular/common/http';
+import { Producto } from '../app.types';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServicioCarritoDeComprasService {
-
+  private _carrito =  new BehaviorSubject<Producto[] | null>(null)
   constructor(private http: HttpClient) { }
 
-  API_CARRITO = "http://localhost:3000/carritoDeCompras"
+  API_CARRITO = "http://localhost:3000/carrito"
 
-  getCarrito(): Observable<any> {
-    return this.http.get(this.API_CARRITO)
+
+get carrito$(): Observable<Producto[] | null> {
+  return this._carrito.asObservable()
+}
+
+  getCarrito(): Observable<Producto[]> {
+    return this.http.get<Producto[]>(this.API_CARRITO)
+    .pipe(
+      tap(response => {
+          this._carrito.next(response)
+      })
+  )
   }
 
   // POST - PRODUCTOS
-  postCarrito(carrito: any): Observable<any> {
-    return (this.http.post(this.API_CARRITO, carrito))
+  postCarrito(carrito: Producto): Observable<Producto> {
+    return (this.http.post<Producto>(this.API_CARRITO, carrito))
   }
 
-  updateCarrito(carrito: any): Observable<any> {
+  updateCarrito(carrito: Producto): Observable<Producto> {
     this.API_CARRITO = `${this.API_CARRITO}/${carrito.id}`
-    return this.http.put(this.API_CARRITO, carrito)
+    return this.http.put<Producto>(this.API_CARRITO, carrito)
+
   }
-  deleteCarrito(id: any): Observable<any> {
+  deleteCarrito(id: Producto): Observable<Producto> {
     this.API_CARRITO = `${this.API_CARRITO}/${id}`
-    return this.http.delete(this.API_CARRITO)
+    return this.http.delete<Producto>(this.API_CARRITO)
   }
 }

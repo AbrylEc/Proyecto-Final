@@ -8,7 +8,8 @@
       <div>
         <p>{{productos[id-1].description}}</p>
         <p>{{productos[id-1].price}}</p>
-        <button class="btn btn-info">Agregar al carrito</button>
+        <button class="btn btn-info" (click)="agregarAlCarrito(productos)"
+          >Añadir al carrito</button>
       </div>
     </div>
   </ng-container>
